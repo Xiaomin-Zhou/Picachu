@@ -1,0 +1,238 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ffcb00;
+    min-height: 100vh;
+    position: relative;
+}
+.head{
+
+    width: 400px;
+    height: 400px;
+    background:#ffcb00;
+    border-radius: 50% 50% 130px 130px;
+    position: relative;
+    left: 50%;
+    margin-left: -200px;
+    top: 0;
+    z-index: 1;
+}
+.nose{
+    width: 20px;
+    height: 20px;
+    z-index: 10;
+    position: relative;
+    left: 50%;
+    top: 185px;
+    margin-left: -10px;
+}
+.nose .triangle{
+    border: 10px solid black;
+    width: 0;
+    height: 0;
+    border-color: black transparent transparent transparent;
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    transform: translateX(-50%);
+}
+@keyframes wave{
+    0%{
+        transform: rotate(0deg);
+    }
+    33%{
+        transform: rotate(10deg);
+    }
+    66%{
+        transform: rotate(-10deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.nose:hover{
+    transform-origin: 50% 100%;
+    animation: wave 150ms infinite linear;
+    cursor: pointer;
+}
+.sector{
+    position: absolute;
+    width: 20px;
+    height: 6px;
+    border: 1px solid black;
+    left: 50%;
+    top: 0px;
+    transform: translateX(-50%);
+    border-radius: 15px 15px 0 0;
+    background-color: black;
+}
+.eye{
+    border: 2px solid #000;
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    left: 50%;
+    top: 125px;
+    margin-left: -32px;
+    background-color: #2e2e2e;  
+    border-radius: 50%;
+}
+.eye::before{
+    content: '';
+    display: block;
+    border: 3px solid #000;
+    width: 23px;
+    height: 23px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    left: 8px;
+    animation: eyesMove 500ms infinite linear; 
+}
+.eye::after{
+    content: '';
+    display: block;
+    border: 3px solid #000;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    left: 4px;
+    animation: eyesMove 500ms infinite linear; 
+}
+.eye.left{
+    transform: translateX(-100px); 
+     
+}
+.eye.right{
+    transform: translateX(100px); 
+}
+@keyframes eyesMove{
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(5px) translateY(5px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+.mouth{
+    width:200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 218px;
+    margin-left: -100px;
+
+}
+.upperLip{
+    width: 80px;
+    height: 38px;
+    /* 背景色是为了 遮挡舌头 深红色部分 */
+    background: #ffcb00;
+    border-bottom: 4px solid #000;
+    position: absolute;
+    z-index: 3;
+}
+.upperLip.left{   
+    border-left: 2px solid #000;
+    border-bottom-left-radius: 340px 180px;
+    right: 50%;
+    margin-right: 2px;
+    transform: rotate(-30deg);
+}
+.upperLip.right{   
+    border-right: 2px solid #000;
+    border-bottom-right-radius: 340px 180px;
+    left: 50%;
+    margin-left: 2px;
+    transform: rotate(30deg);
+}
+.lowerLip{
+    border: 3px solid #000;
+    width: 130px;
+    height: 140px;
+    position: absolute;
+    left: 50%;
+    margin-left: -65px;
+    top: 13px;
+    background: #9b000a;
+    border-bottom-left-radius: 280px 590px;
+    border-bottom-right-radius: 280px 590px;
+    overflow: hidden;
+    animation: mouthMove 3s infinite;
+    cursor: pointer;
+}
+@keyframes mouthMove {
+    0%,46%,54%,100%{
+      height: 140px;
+    }
+    50%{
+      height: 10px;
+    }
+  }
+.tongue{
+    width: 140px;
+    height: 140px;
+    background: #fc4a62;
+    margin-top: 20px;
+    position: absolute;
+    left: 50%;
+    margin-left: -70px;
+    border-radius: 70px;
+    overflow: hidden;
+   
+}
+
+.face{
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    background: #FC0D1C;
+    top: 223px;
+    left: 50%;
+    margin-left: -32px;
+}
+.face.left {
+    transform: translateX(-144px);
+}
+.face.right {
+    transform: translateX(144px);
+}
+.hand{
+    position: absolute;
+    left: 50%;
+    top: 415px;
+    margin-left: -52px;
+}
+.hand.left{
+    transform: translateX(-106px);
+}
+.hand.right{
+    transform: translateX(106px) rotateY(180deg);
+}
+.flash{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.flash.right >img{
+    transform: rotateY(180deg);
+    transform-origin: 0 0;
+}
+audio {
+    display: block;
+    width: 300px;
+    height: 54px;
+}
+audio:not([controls]) {
+    display: none !important;
+}
